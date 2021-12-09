@@ -14,6 +14,7 @@ namespace cuponesCharli.Back.App
         public class CuponUnico : IRequest<Codigos>
         {
             public int codigoCorrecto { get; set; }
+            public DateTime? FechaAsignacion { get; set; }
         }
         public class Manejador : IRequestHandler<CuponUnico, Codigos>
         {
@@ -31,11 +32,112 @@ namespace cuponesCharli.Back.App
 
                 if (cupon == null)
                 {
-                    throw new Exception("El cupon no ha sido premiado ");
-                };
+                    throw new Exception("El cupon seleccionado no ha sido premiado, pruebe con otro cupon ");
+                }
+                else
+                {
+                    cupon.FechaAsignacion = DateTime.Now;
+
+                    //GENERAR USUARIO ALEATORIO
+                   var random = new Random();
+                   var usuario = random.Next(1, 50);
+
+
+                    //Ver si la usurio esta en nulo 
+
+                    if (cupon.Usuario != null)
+                    {
+                        throw new Exception("El cupon ya esta en uso");
+                    }
+
+                    else
+                    {
+                        cupon.Usuario = usuario;
+                        if (cupon.Contador == null)
+                        {
+                            cupon.Contador = 1;                           
+                            
+                        }else
+                        {
+                            cupon.Contador = cupon.Contador + 1;
+                        }
+
+                    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    ////TODO BUSQUEDA DE USUARIO
+                   
+
+                    //if (cupon.Usuario == null)
+                    //{
+                    //    cupon.Usuario = 1;
+                    //    if (cupon.Contador == null)
+                    //    {
+                    //        cupon.Contador = 1;
+                    //    }
+
+                    //    else
+                    //    {
+                    //        cupon.Usuario = cupon.Usuario;
+                    //        cupon.Contador = cupon.Contador + 1;
+                    //    }
+
+                    //EL Usuario ya existe suma 1 al contador
+
+
+
+
+                    //El Usuario no existe genera uno nuevo y pone el contador a 1 
+
+
+                    // Esto genera un usuario aletorio
+
+
+                    //if (cupon.Usuario == null)
+                    //{
+
+                    //}
+                    //else
+                    //{
+                    //    cupon.Usuario = cupon.Usuario;
+
+                    //}
+
+
+
+                    //// TODO EL CONTADOR DEL USUARIO SUME 1 
+                    ////Si el contador es 0 lo pone a 1 , si es mayor que 0 suma 1 
+
+                    //if (cupon.Contador == null)
+                    //{
+                    //    cupon.Contador = 1;
+                    //}
+                    //else
+                    //{
+                    //    cupon.Contador = cupon.Contador + 1;
+                    //}
+
+                    var result = await _context.SaveChangesAsync();
+                }
+
                 return cupon;
 
             }
         }
     }
 }
+

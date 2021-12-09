@@ -20,9 +20,16 @@ namespace cuponesCharli.Back.Controllers
         }
 
         [HttpGet("{codigo}")]
-        public async Task <ActionResult<Codigos>> GetCupon(int codigo) {
+        public async Task<ActionResult<Codigos>> GetCupon(int codigo)
+        {
 
-            return await _mediator.Send(new ConsultaCupon.CuponUnico { codigoCorrecto = codigo}); 
+            return await _mediator.Send(new ConsultaCupon.CuponUnico { codigoCorrecto = codigo });
         }
+
+        //[HttpPut("codigo")]
+        //public async Task<ActionResult<Unit>> Editar(int codigo ,Editar.Insertar data)
+        //{
+           
+        //}
     }
 }

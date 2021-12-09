@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "1ee33ecf-70d1-4fe0-a7b7-371329c9c989": {
+      "ProjectGuid": "1ee33ecf-70d1-4fe0-a7b7-371329c9c989",
+      "DisplayName": "cuponesCharli.Front",
+      "ColorIndex": 0
+    },
+    "200ff50b-dba6-411a-8ec9-8b210ca8276b": {
+      "ProjectGuid": "200ff50b-dba6-411a-8ec9-8b210ca8276b",
+      "DisplayName": "cuponesCharli.Back",
+      "ColorIndex": 1
+    },
+    "6b8c0a41-e99c-428a-8505-cd4651344efd": {
+      "ProjectGuid": "6b8c0a41-e99c-428a-8505-cd4651344efd",
+      "DisplayName": "CuponesCharli.Front",
+      "ColorIndex": 2
+    }
+  },
+  "NextColorIndex": 3
+}
