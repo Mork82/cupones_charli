@@ -15,6 +15,7 @@ namespace cuponesCharli.Back.App
         {
             public int codigoCorrecto { get; set; }
             public DateTime? FechaAsignacion { get; set; }
+            public int User { get; set; }
         }
         public class Manejador : IRequestHandler<CuponUnico, Codigos>
         {
@@ -55,6 +56,14 @@ namespace cuponesCharli.Back.App
                     else
                     {
                         cupon.Usuario = usuario;
+                        //Hacer query para poner la primera casilla 
+
+                   // var primerCasilla = await _context.Codigos.
+                                                           
+                                                               
+
+
+
                         if (cupon.Contador == null)
                         {
                             cupon.Contador = 1;                           
@@ -65,20 +74,6 @@ namespace cuponesCharli.Back.App
                         }
 
                     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
                     ////TODO BUSQUEDA DE USUARIO
