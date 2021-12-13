@@ -29,7 +29,9 @@ namespace cuponesCharli.Back.App
             public async Task<Codigos> Handle(CuponUnico request, CancellationToken cancellationToken)
             {
                 var cupon = await _context.Codigos.Where(x => x.Codigo == request.codigoCorrecto).FirstOrDefaultAsync();
-
+                
+                
+                //ver si el cupon esta premiado 
                 if (cupon == null)
                 {
                     throw new Exception("El cupon seleccionado no ha sido premiado, pruebe con otro cupon ");
@@ -43,7 +45,7 @@ namespace cuponesCharli.Back.App
                    var usuario = random.Next(1, 50);
 
 
-                    //Ver si la usurio esta en nulo 
+                    //Ver si el cupon esta en uso
 
                     if (cupon.Usuario != null)
                     {
